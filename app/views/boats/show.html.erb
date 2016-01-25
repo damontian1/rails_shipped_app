@@ -1,0 +1,21 @@
+<div id="container2">
+<h1 id="center"><%= @boats.name.capitalize %>'s Information</h1>
+<div id="boatinfo1">
+<h1>Manage Current Boat:</h1>
+Boat's Name: <%= @boats.name %><br>
+Maximum # of Containers: <%= @boats.max_containers %><br>
+Boat's Current Location: <%= @boats.current_location %><br>
+<%= link_to "Assign New Job", new_boat_job_path(@boats)%>
+</div>
+<div id="jobinfo1">
+<h1>Current Jobs Assigned:</h1>
+<% @job.each do |j| %>
+Job's Name: <%= j.name %><br>
+Containers Required: <%= j.containers_needed %><br>
+Job's Cargo: <%= j.cargo %><br>
+Job's Cost: <%= j.cost %><br>
+Job's Origin: <%= j.origin %><br>
+Job's Destination: <%= j.destination %><br><hr>
+<% end %>
+</div>
+</div>

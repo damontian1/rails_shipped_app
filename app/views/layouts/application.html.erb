@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShippedApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+	<nav class="thing4">
+		<ul class="thing3">
+			<li class="thing2"><%= link_to "Home", root_path, :class => "thing5" %></li>
+			<li class="thing2"><%= link_to "Sign Up", new_user_path, :class => "thing5" %></li>
+			<li class="thing2"><%= link_to "Add Boat", new_boat_path, :class => "thing5" %></li>
+			<li class="thing2"><%= link_to "Log Out", log_out_path, :class => "thing5" %></li>
+		</ul>
+	</nav>
+</header>
+<%= yield %>
+
+</body>
+</html>

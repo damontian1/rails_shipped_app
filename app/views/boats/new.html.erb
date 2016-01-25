@@ -1,0 +1,25 @@
+<div id="container1">
+<h1 id="center">Welcome <%= current_user.name.capitalize %>!</h1>
+<div id="addboat1">
+<h1>Add a Boat:</h1>
+<%= form_for @boat do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+<%= f.label :max_containers %><br>
+<%= f.text_field :max_containers %><br>
+<%= f.label :current_location %><br>
+<%= f.text_field :current_location %><br>
+<%= f.submit "Add Boat" %>
+<% end %>
+</div>
+<div id="manageboat1">
+<h1>Your Current Boats:</h1>
+<% @boats.each do |b| %>
+Boat's Name: <%= b.name %><br>
+Maximum # of Containers: <%= b.max_containers %><br>
+Boat's Current Location: <%= b.current_location %><br>
+<%= link_to "Show Boat", boat_path(b) %>
+<hr>
+<% end %>
+</div>
+</div>

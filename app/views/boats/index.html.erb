@@ -1,0 +1,5 @@
+<h1>ALL BOATS</h1>
+<% @boats.each do |boat1| %>
+	<%= boat1.name %>
+	<% end %>
+		<%= link_to "Follow User", boat_path(@follows), method: :post %>

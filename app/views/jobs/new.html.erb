@@ -1,0 +1,16 @@
+<!-- <h1>Assign Job to: <%#= @boat.name %></h1> -->
+<%= form_for [@boat,@job] do |f| %>
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+<%= f.label :containers_needed %><br>
+<%= f.text_field :containers_needed %><br>
+<%= f.label :cargo %><br>
+<%= f.text_field :cargo %><br>
+<%= f.label :cost %><br>
+<%= f.text_field :cost %><br>
+<%= f.label :origin %><br>
+<%= f.text_field :origin %><br>
+<%= f.label :destination %><br>
+<%= f.text_field :destination %><br>
+<%= f.submit "Assign Job" %>
+<% end %>
