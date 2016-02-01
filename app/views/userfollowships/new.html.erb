@@ -1,4 +1,6 @@
-<%= form_for [@boat,@job] do |f| %>
-<%= f.label :name %><br>
-<%= f.submit "Assign Job" %>
+<%= form_for [@boat,@follow], remote: true do |f| %>
+<%= image_tag @boat.avatar(:medium) %>
+<h1>Boat Name: <%= @boat.name %></h1>
+<%= f.hidden_field :user_id,  value: "#{current_user.id}" %> 
+<%= f.submit "Follow this Boat" %>
 <% end %>

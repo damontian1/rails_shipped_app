@@ -8,7 +8,7 @@ class BoatsController < ApplicationController
 		@job = Job.where(boat_id: params[:id])
 	end
 	def new
-		@follow = User.find(11).follows
+		@follow = User.find(current_user).follows
 		@boat = Boat.new
 		if current_user
 		@boats = current_user.boats

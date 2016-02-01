@@ -43,6 +43,9 @@ body {
 #center {
     text-align: center;
 }
+.center {
+    margin-left: 45px;
+}
 #container2 {
     width: 800px;
     margin: 0 auto;

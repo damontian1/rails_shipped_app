@@ -1,1 +1,6 @@
 <h1>Hello</h1>
+<% @boats.each do |b| %>
+<p><%= b.name %>
+<%= link_to "Follow this Boat", new_boat_userfollowship_path(b) %> 
+<br></p>
+<% end %>
