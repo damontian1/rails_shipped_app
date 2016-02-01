@@ -1,16 +1,24 @@
-<!-- <h1>Assign Job to: <%#= @boat.name %></h1> -->
+<% if flash[:notice] %>
+    <div class="notice">
+    <%= flash[:notice] %><br>
+    <%= flash[:notice1] %><br>
+    <%= flash[:notice2] %><br>
+    </div>
+  <% end %>
+<div id="assign1"><h1>Assign Job to: <%= @boat.name.capitalize %></h1>
 <%= form_for [@boat,@job] do |f| %>
 <%= f.label :name %><br>
-<%= f.text_field :name %><br>
+<%= f.text_field :name, :class => "input2" %><br>
 <%= f.label :containers_needed %><br>
 <%= f.text_field :containers_needed %><br>
 <%= f.label :cargo %><br>
-<%= f.text_field :cargo %><br>
+<%= f.text_area :cargo %><br>
 <%= f.label :cost %><br>
-<%= f.text_field :cost %><br>
+<%= f.text_field :cost %><br><br>
 <%= f.label :origin %><br>
-<%= f.text_field :origin %><br>
+<%= f.select :origin, [['Hong Kong'], ['Japan'], ['Brazil'], ['Singapore'], ['Italy']] %><br><br>
 <%= f.label :destination %><br>
-<%= f.text_field :destination %><br>
+<%= f.select :destination, [['Greece'], ['England'], ['Beijing'], ['Korea'], ['Mexico']] %><br><br>
 <%= f.submit "Assign Job" %>
 <% end %>
+</div>

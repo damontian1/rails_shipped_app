@@ -5,6 +5,7 @@
 Boat's Name: <%= @boats.name %><br>
 Maximum # of Containers: <%= @boats.max_containers %><br>
 Boat's Current Location: <%= @boats.current_location %><br>
+Boat's Photo: <%= image_tag @boats.avatar(:medium) %><br>
 <%= link_to "Assign New Job", new_boat_job_path(@boats)%>
 </div>
 <div id="jobinfo1">
@@ -13,7 +14,7 @@ Boat's Current Location: <%= @boats.current_location %><br>
 Job's Name: <%= j.name %><br>
 Containers Required: <%= j.containers_needed %><br>
 Job's Cargo: <%= j.cargo %><br>
-Job's Cost: <%= j.cost %><br>
+Job's Cost: $<%= j.cost.to_i %><br>
 Job's Origin: <%= j.origin %><br>
 Job's Destination: <%= j.destination %><br><hr>
 <% end %>

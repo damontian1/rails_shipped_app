@@ -1,5 +1,10 @@
 <h1>ALL BOATS</h1>
 <% @boats.each do |boat1| %>
-	<%= boat1.name %>
-	<% end %>
-		<%= link_to "Follow User", boat_path(@follows), method: :post %>
+<br>
+<div id="boat_container1">
+	<h2>Boat Name: <%= boat1.name %></h2>
+	<h3>Boat's Photo:<br> <%= image_tag boat1.avatar(:medium), class: "boat_img1" %></h3>
+</div>
+<% end %>
+
+<%= link_to "Follow User", boat_path(@follows), method: :post %>

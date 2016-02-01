@@ -1,25 +1,45 @@
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h1 id="center">Welcome <%= current_user.name.capitalize %>!
+</h1>
+
 <div id="container1">
-<h1 id="center">Welcome <%= current_user.name.capitalize %>!</h1>
-<div id="addboat1">
-<h1>Add a Boat:</h1>
-<%= form_for @boat do |f| %>
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
-<%= f.label :max_containers %><br>
-<%= f.text_field :max_containers %><br>
-<%= f.label :current_location %><br>
-<%= f.text_field :current_location %><br>
-<%= f.submit "Add Boat" %>
-<% end %>
-</div>
-<div id="manageboat1">
-<h1>Your Current Boats:</h1>
-<% @boats.each do |b| %>
-Boat's Name: <%= b.name %><br>
-Maximum # of Containers: <%= b.max_containers %><br>
-Boat's Current Location: <%= b.current_location %><br>
-<%= link_to "Show Boat", boat_path(b) %>
-<hr>
-<% end %>
-</div>
+
+	<div id="addboat1">
+
+		<h1>Add a New Boat:</h1>
+		<%= form_for @boat, :url => boats_path, :html => { :multipart => true } do |f| %>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %><br>
+		<%= f.label :max_containers %><br>
+		<%= f.text_field :max_containers %><br><br>
+		<%= f.label :current_location %><br>
+		<%= f.select :current_location, [['Hong Kong'], ['Japan'], ['Brazil'], ['Singapore'], ['Italy']] %><br><br>
+		<%= f.label "Add Boat Photo:" %>
+		<%= f.file_field :avatar %><br><br>
+		<%= f.submit "Submit" %>
+		<% end %>
+
+		<h1>Boats You're Following: </h1>
+		<% @follow.each do |f| %>
+		<h2><%= f.name %></h2>
+		<%= image_tag f.avatar(:thumb) %>
+		<%end %>
+
+	</div>
+
+	<div id="manageboat1">
+		<h1>Boats You're Managing: </h1>
+		<% @boats.each do |b| %>
+		Boat's Name: <%= b.name %><br>
+		Maximum # of Containers: <%= b.max_containers %><br>
+		Boat's Current Location: <%= b.current_location %><br>
+		Boat's Photo:<br> <%= image_tag b.avatar(:medium), class: "boat_img1" %><br><br>
+		<%= link_to "Manage Boat's Jobs", boat_path(b) %>
+		<hr>
+		<% end %>
+	</div>
+
 </div>
